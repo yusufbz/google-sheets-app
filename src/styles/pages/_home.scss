@@ -1,0 +1,67 @@
+@import "../variables";
+
+.home {
+  .page-header {
+    padding: 60px 0 40px;
+  }
+
+  .table-responsive {
+    background-color: white;
+    border: 1px solid $gray-300;
+    border-radius: 6px;
+    overflow: hidden;
+    .table {
+      thead {
+        display: flex;
+        width: 100%;
+        tr {
+          display: flex;
+          width: 100%;
+          th {
+            display: flex;
+            width: 100%;
+            padding: 14px;
+            color: $gray-600;
+            font-size: 12px;
+          }
+          th:last-child {
+            justify-content: flex-end;
+          }
+        }
+      }
+      tbody {
+        border-top-width: 0px;
+        display: flex;
+        flex-direction: column;
+        tr {
+          display: flex;
+          width: 100%;
+          td {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 14px;
+            line-height: 20px;
+          }
+          td:last-child {
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+        tr:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+        .dropdown {
+          .automation-status {
+            padding-left: 10px;
+          }
+          .automation-status-icon {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
