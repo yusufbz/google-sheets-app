@@ -12,7 +12,7 @@
 
 .navigation {
   background-color: white;
-  padding: 16px 24px;
+  padding: 16px 0;
   -webkit-box-shadow: 0 1px 0 #e9ecef;
           box-shadow: 0 1px 0 #e9ecef;
 }
@@ -135,5 +135,90 @@
 
 .home .table-responsive .table tbody .dropdown .automation-status-icon {
   margin-right: 10px;
+}
+
+.new .container {
+  max-width: 680px;
+}
+
+.new .step {
+  padding-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.new .step h2,
+.new .step p {
+  text-align: center;
+}
+
+.new .collected-data-type .data-type-options {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 0 0;
+}
+
+.new .collected-data-type .data-type-options label {
+  width: 100%;
+  margin: 0;
+}
+
+.new .collected-data-type .data-type-options label .form-selectgroup-label {
+  padding: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 6px;
+  color: #212529;
+}
+
+.new .collected-data-type .data-type-options label .form-selectgroup-label .icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 10px;
+}
+
+.new .collected-data-type .data-type-options label .form-selectgroup-label span {
+  font-weight: 400;
+}
+
+.new .collected-data-type .data-type-options label:first-child {
+  margin-right: 14px;
+}
+
+.new .collected-data-type .data-type-options label input:checked + .form-selectgroup-label {
+  color: #206bc4;
+  -webkit-box-shadow: 0 0 0 1px #206bc4;
+          box-shadow: 0 0 0 1px #206bc4;
+}
+
+.new .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 40px;
 }
 /*# sourceMappingURL=main.css.map */

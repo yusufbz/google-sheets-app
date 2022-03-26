@@ -8,20 +8,22 @@ import "./App.css";
 import "../styles/main.css";
 
 function App() {
-  const [auth, isAuth] = useState(true);
+  const [auth, isAuth] = useState(false);
   return (
     <div className="App">
-      {!auth ? (
-        <Route path="/" element={<Auth />} />
-      ) : (
-        <>
-          <Navigation />
-          <Routes>
-            <Route path="/" exact element={<Home />} />
-            <Route path="/new" element={<New />} />
-          </Routes>
-        </>
-      )}
+      <Routes>
+        {!auth ? (
+          <Route path="/" element={<Auth />} />
+        ) : (
+          <>
+            <Navigation />
+            <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route path="/new" element={<New />} />
+            </Routes>
+          </>
+        )}
+      </Routes>
     </div>
   );
 }

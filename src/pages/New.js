@@ -1,78 +1,26 @@
-import React, { useReducer, useState } from "react";
-import { IconTruck, IconTruckDelivery, IconUsers } from "@tabler/icons";
+import React, { useReducer } from "react";
+import StepCollectedData from "../components/StepCollectedData";
+import StepSelectSpreedsheet from "../components/StepSelectSpreedsheet";
 
-function collect(state, action) {
+function collect(collectedData, action) {
   switch (action.type) {
-    case "contacts":
-      return {
-        contacts: true,
-        orders: false,
-      };
-    case "orders":
-      return {
-        contacts: false,
-        orders: true,
-      };
+    case "collected_data":
+      return {};
+    case "selectedSpreedSheet":
+      return;
     default:
-      return {
-        contacts: false,
-        orders: false,
-      };
+      return;
   }
 }
 
 export default function New() {
-  const [collectedData, setCollectedData] = useReducer(collect, {
-    contacts: false,
-    orders: false,
-  });
-  console.log(collectedData);
+  // const [state, dispatch] = useReducer(collect, {});
   return (
     <div className="new">
       <div className="container">
-        <h2>1. Select collected data</h2>
-        <p>
-          Make sure you are using a sheet created with an account linked to Lightfunnels. It does
-          not work if created with an account other than the linked account
-        </p>
-        <div class="mb-3">
-          <label class="form-label">Selectgroup with icons and text</label>
-          <div class="form-selectgroup">
-            <label class="form-selectgroup-item">
-              <input
-                type="radio"
-                name="icons"
-                value="home"
-                class="form-selectgroup-input"
-                checked={collectedData.contacts}
-                onClick={() => {
-                  setCollectedData({ type: "contacts" });
-                }}
-              />
-              <span class="form-selectgroup-label">
-                <IconUsers />
-                Collect contacts
-              </span>
-            </label>
-            <label class="form-selectgroup-item">
-              <input
-                type="radio"
-                name="icons"
-                value="user"
-                class="form-selectgroup-input"
-                checked={collectedData.orders}
-                onClick={() => {
-                  setCollectedData({ type: "orders" });
-                }}
-              />
-              <span class="form-selectgroup-label">
-                <IconTruck />
-                User
-              </span>
-            </label>
-          </div>
-        </div>
-        <div className="Actions">
+        <StepCollectedData />
+        {/* <StepSelectSpreedsheet /> */}
+        <div className="actions">
           <a href="/" className="btn btn-outline">
             Cancel
           </a>
