@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Auth from "./Auth";
 import Navigation from "../components/Navigation";
@@ -8,22 +7,22 @@ import "./App.css";
 import "../styles/main.css";
 
 function App() {
-  const [auth, isAuth] = useState(false);
+  const auth = true;
   return (
     <div className="App">
-      <Routes>
-        {!auth ? (
-          <Route path="/" element={<Auth />} />
-        ) : (
-          <>
-            <Navigation />
-            <Routes>
-              <Route path="/" exact element={<Home />} />
-              <Route path="/new" element={<New />} />
-            </Routes>
-          </>
-        )}
-      </Routes>
+      {!auth ? (
+        <Routes>
+          <Route exact path="/" element={<Auth />} />
+        </Routes>
+      ) : (
+        <>
+          <Navigation />
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/new" element={<New />} />
+          </Routes>
+        </>
+      )}
     </div>
   );
 }

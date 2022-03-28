@@ -40,6 +40,61 @@
   transition: none;
 }
 
+.modal-dialog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  max-width: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(33, 37, 41, 0.3);
+  z-index: 999;
+}
+
+.modal-dialog .modal-content {
+  max-width: 540px;
+}
+
+.loading-page {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loading-page .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 100px auto 0;
+  max-width: 360px;
+}
+
+.loading-page .content .spinner {
+  color: #206bc4;
+}
+
+.loading-page .content p {
+  margin: 14px 0 0;
+}
+
 .Home .container {
   width: 100%;
   max-width: 1080px;
@@ -47,6 +102,10 @@
 
 .home .page-header {
   padding: 60px 0 40px;
+}
+
+.home .page-header .d-none {
+  display: block !important;
 }
 
 .home .table-responsive {
@@ -125,6 +184,10 @@
           justify-content: flex-end;
 }
 
+.home .table-responsive .table tbody tr .td_status {
+  min-width: 158px;
+}
+
 .home .table-responsive .table tbody tr:last-child td {
   border-bottom: none;
 }
@@ -139,9 +202,39 @@
 
 .new .container {
   max-width: 680px;
+  overflow: hidden;
 }
 
-.new .step {
+.new .steps {
+  margin-bottom: 0;
+}
+
+.new .steps .step-item::before {
+  background: #206bc4;
+}
+
+.new .steps .step-item::after {
+  background: #206bc4;
+}
+
+.new .steps .step-item.active::before {
+  background: white;
+  border-color: #206bc4;
+}
+
+.new .steps .step-item.active::after {
+  background: #206bc4;
+}
+
+.new .steps .step-item.active ~ ::before {
+  border-color: #dee2e6;
+}
+
+.new .steps .step-item.active ~ ::after {
+  background: #dee2e6;
+}
+
+.new .step-content {
   padding-top: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -155,25 +248,43 @@
           align-items: center;
 }
 
-.new .step h2,
-.new .step p {
+.new .step-content h2,
+.new .step-content p {
   text-align: center;
 }
 
-.new .collected-data-type .data-type-options {
+.new .step-content p {
+  margin-bottom: 0;
+}
+
+.new .step-content .content {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 10px 0 0;
+  margin-top: 24px;
 }
 
-.new .collected-data-type .data-type-options label {
+.new .step-content .actions {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 40px;
+}
+
+.new .collected-data-type .content label {
   width: 100%;
   margin: 0;
 }
 
-.new .collected-data-type .data-type-options label .form-selectgroup-label {
+.new .collected-data-type .content label .form-selectgroup-label {
   padding: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -189,36 +300,61 @@
   color: #212529;
 }
 
-.new .collected-data-type .data-type-options label .form-selectgroup-label .icon {
+.new .collected-data-type .content label .form-selectgroup-label .icon {
   width: 24px;
   height: 24px;
   margin-bottom: 10px;
 }
 
-.new .collected-data-type .data-type-options label .form-selectgroup-label span {
+.new .collected-data-type .content label .form-selectgroup-label span {
   font-weight: 400;
 }
 
-.new .collected-data-type .data-type-options label:first-child {
+.new .collected-data-type .content label:first-child {
   margin-right: 14px;
 }
 
-.new .collected-data-type .data-type-options label input:checked + .form-selectgroup-label {
+.new .collected-data-type .content label input:checked + .form-selectgroup-label {
   color: #206bc4;
   -webkit-box-shadow: 0 0 0 1px #206bc4;
           box-shadow: 0 0 0 1px #206bc4;
 }
 
-.new .actions {
+.new .select-spreadsheet .content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.new .select-spreadsheet .content .select-sepreadsheet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.new .select-spreadsheet .content .select-sepreadsheet .select-btn {
+  font-weight: 400;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 40px;
+}
+
+.new .select-spreadsheet .content .select-sepreadsheet .dropdown-menu {
+  top: 44px;
+  width: 100%;
+}
+
+.new .select-spreadsheet .dropdown-menu {
+  display: none;
+  visibility: visible;
 }
 /*# sourceMappingURL=main.css.map */

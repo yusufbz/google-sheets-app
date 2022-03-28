@@ -7,7 +7,7 @@ export default function AutomationsList({ automations }) {
     return (
       <>
         <td>{name}</td>
-        <td className="text-muted">
+        <td className="text-muted td_status">
           <span className="dropdown">
             <button
               className="btn dropdown-toggle align-text-top automation-status"

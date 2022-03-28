@@ -11,12 +11,10 @@ export default function Header() {
           </h1>
         </div>
         <div className="col-auto ms-auto">
-          <div className="btn-list">
-            <Link to="/new" className="btn btn-primary d-none d-sm-inline-block">
-              <IconPlus />
-              Create new report
-            </Link>
-          </div>
+          <Link to="/new" className="btn btn-primary d-none d-sm-inline-block">
+            <IconPlus />
+            Create new report
+          </Link>
         </div>
       </div>
     </div>

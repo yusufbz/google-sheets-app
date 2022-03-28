@@ -3,6 +3,9 @@
 .home {
   .page-header {
     padding: 60px 0 40px;
+    .d-none {
+      display: block !important;
+    }
   }
 
   .table-responsive {
@@ -46,6 +49,9 @@
           td:last-child {
             display: flex;
             justify-content: flex-end;
+          }
+          .td_status {
+            min-width: 158px;
           }
         }
         tr:last-child {

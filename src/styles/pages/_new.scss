@@ -1,24 +1,63 @@
+@import "../variables";
 .new {
   .container {
     max-width: 680px;
+    overflow: hidden;
   }
 
-  .step {
+  .steps {
+    margin-bottom: 0;
+    .step-item {
+      &::before {
+        background: #206bc4;
+      }
+      &::after {
+        background: #206bc4;
+      }
+      &.active::before {
+        background: white;
+        border-color: #206bc4;
+      }
+      &.active::after {
+        background: #206bc4;
+      }
+      &.active ~ ::before {
+        border-color: $gray-300;
+      }
+      &.active ~ ::after {
+        background: $gray-300;
+      }
+    }
+  }
+
+  .step-content {
     padding-top: 60px;
     h2,
     p {
       text-align: center;
     }
+    p {
+      margin-bottom: 0;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
+    .content {
+      width: 100%;
+      display: flex;
+      margin-top: 24px;
+    }
+    .actions {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 40px;
+    }
   }
 
   .collected-data-type {
-    .data-type-options {
-      width: 100%;
-      display: flex;
-      margin: 10px 0 0;
+    .content {
       label {
         width: 100%;
         margin: 0;
@@ -49,10 +88,27 @@
     }
   }
 
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 40px;
+  .select-spreadsheet {
+    .content {
+      flex-direction: column;
+      .select-sepreadsheet {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        .select-btn {
+          font-weight: 400;
+          display: flex;
+          justify-content: space-between;
+        }
+        .dropdown-menu {
+          top: 44px;
+          width: 100%;
+        }
+      }
+    }
+    .dropdown-menu {
+      display: none;
+      visibility: visible;
+    }
   }
 }
