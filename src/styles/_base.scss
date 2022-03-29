@@ -13,13 +13,42 @@
 .navigation {
   background-color: white;
   padding: 16px 0;
-  box-shadow: 0 1px 0 $gray-200;
+  box-shadow: 0 1px 0 $--tblr-gray-200;
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     .logo {
       height: 36px;
+    }
+    > div {
+      display: flex;
+      button {
+        padding: 0;
+        border: none;
+        background: none;
+        color: $--tblr-red;
+      }
+      .divider-vertical {
+        width: 1px;
+        height: 36px;
+        margin: 0 24px;
+        background-color: $--tblr-gray-300;
+      }
+      .connected-acc {
+        display: flex;
+        align-items: center;
+        .avatar {
+          border: 1px solid $--tblr-gray-300;
+          margin-right: 10px;
+          width: 36px;
+          height: 36px;
+        }
+      }
+      .acc-name {
+        font-size: 15px;
+        text-transform: capitalize;
+      }
     }
   }
 }
@@ -43,7 +72,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba($gray-900, 0.3);
+  background-color: rgba($--tblr-gray-900, 0.3);
   z-index: 999;
   .modal-content {
     max-width: 540px;
@@ -54,17 +83,19 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 100px auto 0;
-    max-width: 360px;
-    .spinner {
-      color: #206bc4;
-    }
-    p {
-      margin: 14px 0 0;
-    }
+  padding-top: 100px;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 360px;
+  .spinner {
+    color: #206bc4;
+  }
+  p {
+    margin: 14px 0 0;
   }
 }

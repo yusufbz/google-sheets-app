@@ -10,7 +10,7 @@
 
   .table-responsive {
     background-color: white;
-    border: 1px solid $gray-300;
+    border: 1px solid $--tblr-gray-300;
     border-radius: 6px;
     overflow: hidden;
     .table {
@@ -24,7 +24,7 @@
             display: flex;
             width: 100%;
             padding: 14px;
-            color: $gray-600;
+            color: $--tblr-gray-600;
             font-size: 12px;
           }
           th:last-child {

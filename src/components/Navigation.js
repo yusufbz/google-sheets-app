@@ -5,7 +5,7 @@ import G_sheet_full_logo from "../assets/images/g-sheets-full-logo.svg";
 export default function Navigation() {
   const account = {
     name: "yusuf's",
-    avatarImage:
+    avatarImsage:
       "https://scontent.frak2-2.fna.fbcdn.net/v/t39.30808-6/260257050_640113407007401_6947324348828438352_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeEPTfWK-nal4eCyP3AnRYOCBf6rugUiRKkF_qu6BSJEqdLFUwFLJO-9G1TLPRrrEKDh0Ixo9DmTjtlQRO7bYi9N&_nc_ohc=7ys-fwX7GakAX_1dzPU&_nc_ht=scontent.frak2-2.fna&oh=00_AT80E64HL9l56YRAndacuJyd6VKluH9OX6PNcj-HfwpZZg&oe=624592DE",
   };
   return (
@@ -14,23 +14,23 @@ export default function Navigation() {
         <a href="/">
           <img src={G_sheet_full_logo} alt="" className="logo" />
         </a>
-
         <div>
           <button className="btn btn-ghost-danger">
             <IconLogout />
             Disconnect
           </button>
-          <div>
+          <span className="divider-vertical"></span>
+          <div className="connected-acc">
             {account.avatarImage ? (
               <span
-                class="avatar rounded-circle"
+                className="avatar rounded-circle"
                 style={{ backgroundImage: `url("${account.avatarImage}")` }}
               ></span>
             ) : (
-              <span class="avatar rounded-circle">account.name.charAt(1)</span>
+              <span className="avatar rounded-circle">{account.name.charAt(0)}</span>
             )}
 
-            {account.name}
+            <span className="acc-name">{account.name}</span>
           </div>
         </div>
       </div>

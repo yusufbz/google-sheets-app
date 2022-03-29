@@ -7,7 +7,7 @@ export default function Header() {
       <div className="row align-items-center">
         <div className="col">
           <h1 className="page-title">
-            Dashboard - <span>Yusuf's</span>
+            Automations - <span>Yusuf's</span>
           </h1>
         </div>
         <div className="col-auto ms-auto">

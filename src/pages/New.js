@@ -1,6 +1,10 @@
 import React, { useReducer, useRef, useState } from "react";
 import { IconNotes, IconPlus, IconUsers } from "@tabler/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import StepSelectTabSheet from "../components/StepSelectedTabSheet";
+import StepMetaFields from "../components/StepMetaFields";
+
+import Loading from "../components/Loading";
 
 function collect(collectedData, action) {
   switch (action.type) {
@@ -23,22 +27,26 @@ function collect(collectedData, action) {
 }
 
 export default function New() {
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(4);
   const [collectedData, setCollectedData] = useReducer(collect, {
     contacts: true,
     orders: false,
   });
   const [addNewSpreadSheet, setAddNewSpreadSheet] = useState(false);
   const spreadsheetList = useRef(null);
+  const navigate = useNavigate();
 
+  // COMPONENTS
   function StepCollectedData() {
     return (
       <div className="step-content collected-data-type">
-        <h2>1. Select collected data</h2>
-        <p>
-          Make sure you are using a sheet created with an account linked to Lightfunnels. It does
-          not work if created with an account other than the linked account
-        </p>
+        <div className="content-header">
+          <h2>1. Select collected data</h2>
+          <p>
+            Make sure you are using a sheet created with an account linked to Lightfunnels. It does
+            not work if created with an account other than the linked account
+          </p>
+        </div>
         <div className="content">
           <label className="form-selectgroup-item">
             <input
@@ -89,18 +97,16 @@ export default function New() {
       </div>
     );
   }
-
   function StepSelectSpreadsheet() {
-    const spreadsheetListItem = () => {
-      return <div className="dropdown-item">Spreadsheet-01</div>;
-    };
     return (
       <div className="step-content select-spreadsheet">
-        <h2>2. Select the Spreadsheet</h2>
-        <p>
-          Make sure you are using a sheet created with an account linked to Lightfunnels. It does
-          not work if created with an account other than the linked account
-        </p>
+        <div className="content-header">
+          <h2>2. Select the Spreadsheet</h2>
+          <p>
+            Make sure you are using a sheet created with an account linked to Lightfunnels. It does
+            not work if created with an account other than the linked account
+          </p>
+        </div>
         <div className="content">
           <div className="select-sepreadsheet">
             <button
@@ -120,9 +126,23 @@ export default function New() {
                 spreadsheetList.current.style.display = "none";
               }}
             >
+              {/* Map here over the account spreadsheets list */}
               <li className="dropdown-item">Spreadsheet-01</li>
               <li className="dropdown-item">Test-99</li>
-              <li className="dropdown-item active">My Orders</li>
+              <li className="dropdown-item">My Orders</li>
+              <li className="dropdown-item">Spreadsheet-01</li>
+              <li className="dropdown-item">Test-99</li>
+              <li className="dropdown-item">My Orders</li>
+              <li className="dropdown-item">Spreadsheet-01</li>
+              <li className="dropdown-item">Test-99</li>
+              <li className="dropdown-item">My Orders</li>
+              <li className="dropdown-item">Spreadsheet-01</li>
+              <li className="dropdown-item">Test-99</li>
+              <li className="dropdown-item">My Orders</li>
+              <li className="dropdown-item">
+                <div className="spinner spinner-border"></div>
+                <p>loading</p>
+              </li>
             </ul>
           </div>
           <div className="hr-text">OR</div>
@@ -150,99 +170,55 @@ export default function New() {
       </div>
     );
   }
-
-  function StepSelectTabSheet() {
-    return (
-      <div className="step-content collected-data-type">
-        <h2>3. Set your spreadsheet tab</h2>
-        <p>
-          Make sure you are using a sheet created with an account linked to Lightfunnels. It does
-          not work if created with an account other than the linked account
-        </p>
-        <div className="content"></div>
-        <div className="actions">
-          <button
-            className="btn btn-outline"
-            onClick={() => setActiveStep((prevStep) => prevStep - 1)}
-          >
-            Back
-          </button>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              setActiveStep((prevStep) => prevStep + 1);
-            }}
-          >
-            Next
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  function StepMetaFields() {
-    return (
-      <div className="step-content collected-data-type">
-        <h2>4. Mapping your Meta field</h2>
-        <p>
-          Make sure you are using a sheet created with an account linked to Lightfunnels. It does
-          not work if created with an account other than the linked account
-        </p>
-        <div className="content"></div>
-        <div className="actions">
-          <button
-            className="btn btn-outline"
-            onClick={() => setActiveStep((prevStep) => prevStep - 1)}
-          >
-            Back
-          </button>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              setActiveStep((prevStep) => prevStep + 1);
-            }}
-          >
-            Next
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   function ModalAddNewSpreadsheet() {
     return (
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">New report</h5>
+      <div className="modal-dialog modal-lg" role="document">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title">New report</h5>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
               onClick={() => setAddNewSpreadSheet(false)}
             ></button>
           </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label class="form-label">Name</label>
+          <div className="modal-body">
+            <div className="mb-3">
+              <label className="form-label">Name</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="example-text-input"
                 placeholder="Your report name"
-                autoFocus="true"
+                autoFocus={true}
               />
             </div>
-            <div class="modal-footer">
+            <div className="mb-3">
+              <label className="form-label">Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="example-text-input"
+                placeholder="Your report name"
+              />
+            </div>
+            <div className="modal-footer">
               <button
-                class="btn btn-link link-secondary"
+                className="btn btn-link link-secondary"
                 data-bs-dismiss="modal"
                 onClick={() => setAddNewSpreadSheet(false)}
               >
                 Cancel
               </button>
-              <button class="btn btn-primary ms-auto" data-bs-dismiss="modal">
+              <button
+                className="btn btn-primary ms-auto"
+                data-bs-dismiss="modal"
+                onClick={() => {
+                  setActiveStep(4);
+                }}
+              >
                 Create
               </button>
             </div>
@@ -252,19 +228,29 @@ export default function New() {
     );
   }
 
+  function redirect() {
+    setTimeout(() => navigate("/"), 3000);
+  }
+
   return (
     <div className="new">
-      <div className="container">
-        <div class="steps steps-counter steps-lime">
-          <span class={`step-item ${activeStep === 1 ? "active" : ""}`}></span>
-          <span class={`step-item ${activeStep === 2 ? "active" : ""}`}></span>
-          <span class={`step-item ${activeStep === 3 ? "active" : ""}`}></span>
-          <span class={`step-item ${activeStep === 4 ? "active" : ""}`}></span>
+      <div className="container-full">
+        <div className="steps steps-counter steps-lime">
+          <span className={`step-item ${activeStep === 1 ? "active" : ""}`}></span>
+          <span className={`step-item ${activeStep === 2 ? "active" : ""}`}></span>
+          <span className={`step-item ${activeStep === 3 ? "active" : ""}`}></span>
+          <span className={`step-item ${activeStep === 4 ? "active" : ""}`}></span>
         </div>
         {activeStep === 1 && <StepCollectedData />}
         {activeStep === 2 && <StepSelectSpreadsheet />}
-        {activeStep === 3 && <StepSelectTabSheet />}
-        {activeStep === 4 && <StepMetaFields />}
+        {activeStep === 3 && <StepSelectTabSheet setActiveStep={setActiveStep} />}
+        {activeStep === 4 && <StepMetaFields setActiveStep={setActiveStep} />}
+        {activeStep === 5 && (
+          <>
+            {redirect()}
+            <Loading content="Hang on, your sheet are being loaded…" />
+          </>
+        )}
         {addNewSpreadSheet && <ModalAddNewSpreadsheet />}
       </div>
     </div>
