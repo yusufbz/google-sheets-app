@@ -23,10 +23,7 @@ export default function StepSelectTabSheet({ setActiveStep }) {
     <div className="step-content select-sheet-tab">
       <div className="content-header">
         <h2>3. Set your spreadsheet tab</h2>
-        <p>
-          Make sure you are using a sheet created with an account linked to Lightfunnels. It does
-          not work if created with an account other than the linked account
-        </p>
+        <p>Select the spreadsheet tab that you want to use for this automation?</p>
       </div>
       <div className="content">
         <div className="form-selectgroup form-selectgroup-boxes d-flex flex-column sheet-tabs">

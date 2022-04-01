@@ -1,6 +1,6 @@
 import React from "react";
 import IconStatusCircle from "../assets/icons/status-circle";
-import { IconChevronLeft, IconChevronRight, IconDots } from "@tabler/icons";
+import { IconChevronLeft, IconChevronRight, IconTrash } from "@tabler/icons";
 
 export default function AutomationsList({ automations }) {
   function Cell({ name, status, createdDate }) {
@@ -36,17 +36,9 @@ export default function AutomationsList({ automations }) {
         </td>
         <td className="text-muted">{createdDate}</td>
         <td>
-          <button type="button" className="btn dropdown-toggle btn-more" data-bs-toggle="dropdown">
-            <IconDots size={40} />
+          <button type="button" className="btn btn-more">
+            <IconTrash size={40} />
           </button>
-          <div className="dropdown-menu dropdown-menu-end">
-            <a className="dropdown-item" href="/">
-              Edit
-            </a>
-            <a className="dropdown-item" href="/">
-              Delete
-            </a>
-          </div>
         </td>
       </>
     );

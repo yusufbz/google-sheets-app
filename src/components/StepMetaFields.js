@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
-import { IconChevronRight, IconChevronLeft } from "@tabler/icons";
+import { IconChevronRight, IconChevronLeft, IconTrash, IconPlus } from "@tabler/icons";
 
 export default function StepMetaFields({ setActiveStep }) {
   const tableScroll = useRef(null);
+  const fieldSelect = useRef();
   const [loading, setLoading] = useState(true);
-  const sheetData = [
+  const [sheetData, setSheetData] = useState([
     "id",
     "price",
     "title",
@@ -16,25 +17,25 @@ export default function StepMetaFields({ setActiveStep }) {
     "order_name",
     "order_email",
     "order_sub_total",
-    "order_total",
-    "order_fulfillment_status",
-    "order_financial_status",
-    "order_billing_address_country",
-    "order_billing_address_name",
-    "order_billing_address_line2",
-    "order_billing_address_city",
-    "order_billing_address_line1",
-    "order_billing_address_zip",
-    "order_billing_address_state",
-    "order_shipping_address_city",
-    "order_shipping_address_line1",
-    "order_shipping_address_zip",
-    "order_shipping_address_name",
-    "order_shipping_address_country",
-    "order_shipping_address_line2",
-    "order_shipping_address_state",
-    "order_created_at",
-  ];
+    // "order_total",
+    // "order_fulfillment_status",
+    // "order_financial_status",
+    // "order_billing_address_country",
+    // "order_billing_address_name",
+    // "order_billing_address_line2",
+    // "order_billing_address_city",
+    // "order_billing_address_line1",
+    // "order_billing_address_zip",
+    // "order_billing_address_state",
+    // "order_shipping_address_city",
+    // "order_shipping_address_line1",
+    // "order_shipping_address_zip",
+    // "order_shipping_address_name",
+    // "order_shipping_address_country",
+    // "order_shipping_address_line2",
+    // "order_shipping_address_state",
+    // "order_created_at",
+  ]);
   const Thead = ({ fieldName }) => {
     return (
       <>
@@ -46,14 +47,23 @@ export default function StepMetaFields({ setActiveStep }) {
           }}
         />
         <label className="form-check form-switch">
-          <input
+          {/* <input
             className="form-check-input"
             type="checkbox"
             defaultChecked
             onClick={() => {
               // Some lines of code will goes here
             }}
-          />
+          /> */}
+          <button
+            type="button"
+            className="btn btn-more"
+            onClick={() => {
+              // Trigger the delete column
+            }}
+          >
+            <IconTrash size="20px" />
+          </button>
         </label>
       </>
     );
@@ -61,16 +71,21 @@ export default function StepMetaFields({ setActiveStep }) {
 
   setTimeout(() => setLoading(false), 1000);
 
-  const changeScroll = (isleft) => {
+  const changeScroll = (isleft, end) => {
     let currentScroll = tableScroll.current.scrollLeft;
     if (currentScroll >= -300) {
       if (isleft) {
-        tableScroll.current.scrollLeft = currentScroll + 300;
+        tableScroll.current.scrollLeft = currentScroll + (end || 900000);
       } else {
         tableScroll.current.scrollLeft = tableScroll.current.scrollLeft - 300;
       }
     }
   };
+
+  function addNewColumn() {
+    setSheetData([...sheetData, "New column"]);
+    setTimeout(() => changeScroll(true, 9000000), 1);
+  }
 
   return (
     <div className="step-content fields-mapping">
@@ -80,6 +95,10 @@ export default function StepMetaFields({ setActiveStep }) {
           Make sure you are using a sheet created with an account linked to Lightfunnels. It does
           not work if created with an account other than the linked account
         </p>
+        <button className="btn btn-ghost-primary" onClick={() => addNewColumn()}>
+          <IconPlus />
+          Add new collumn
+        </button>
       </div>
       <div className="content full-content">
         {loading ? (
@@ -108,11 +127,15 @@ export default function StepMetaFields({ setActiveStep }) {
                         <div className="select-sepreadsheet">
                           <button
                             className="btn btn-outline select-btn form-select"
-                            onClick={() => {}}
+                            onClick={(e) => {
+                              const display = e.target.nextSibling.style.display;
+                              e.target.nextSibling.style.display =
+                                display === "block" ? "none" : "block";
+                            }}
                           >
                             {sheet}
                           </button>
-                          <ul className="dropdown-menu dropdown-menu-demo">
+                          <ul className="dropdown-menu dropdown-menu-demo" ref={fieldSelect}>
                             {/* Map here over the account spreadsheets list */}
                             <li className="dropdown-item">Spreadsheet-01</li>
                             <li className="dropdown-item">Test-99</li>
@@ -129,6 +152,7 @@ export default function StepMetaFields({ setActiveStep }) {
                   </tr>
                 </tbody>
               </table>
+              <button onClick={() => addNewColumn()}>Add new col</button>
             </div>
             <div className="fade-table f-left"></div>
             <div className="fade-table f-right"></div>
