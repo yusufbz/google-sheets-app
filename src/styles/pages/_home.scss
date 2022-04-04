@@ -49,6 +49,9 @@
           td:last-child {
             display: flex;
             justify-content: flex-end;
+            .external-sheet-link {
+              margin-right: 14px;
+            }
           }
           .td_status {
             min-width: 158px;

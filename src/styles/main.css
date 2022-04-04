@@ -229,6 +229,10 @@ th .btn-more::after {
           justify-content: flex-end;
 }
 
+.home .table-responsive .table tbody tr td:last-child .external-sheet-link {
+  margin-right: 14px;
+}
+
 .home .table-responsive .table tbody tr .td_status {
   min-width: 158px;
 }
@@ -383,8 +387,11 @@ th .btn-more::after {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 60px;
-  margin: -176px;
-  z-index: 9999999;
+}
+
+.new .step-content .actions2 {
+  margin: -156px;
+  z-index: 400;
 }
 
 .new .collected-data-type .content label {
@@ -513,6 +520,7 @@ th .btn-more::after {
   display: flex;
   overflow: scroll;
   padding: 1px 60px calc(340px - 162px) 60px;
+  z-index: 200;
 }
 
 .new .fields-mapping .full-content .list-fields .table {
@@ -598,7 +606,11 @@ th .btn-more::after {
   border-bottom: 1px solid #cbd5e1;
 }
 
-.new .fields-mapping .full-content .list-fields .table tbody td button {
+.new .fields-mapping .full-content .list-fields .table tbody td .field-select {
+  position: relative;
+}
+
+.new .fields-mapping .full-content .list-fields .table tbody td .field-select button {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -608,17 +620,15 @@ th .btn-more::after {
 
 .new .fields-mapping .full-content .list-fields .table tbody .extra {
   padding-top: 24px;
-  border-bottom-width: 0;
 }
 
 .new .fields-mapping .full-content .list-fields .table tbody .extra .f-bottom {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(245, 247, 251, 0)), to(#f5f7fb));
   background: linear-gradient(180deg, rgba(245, 247, 251, 0) 0%, #f5f7fb 100%);
-  width: 100%;
   height: 36px;
   left: -1px;
   right: -1px;
-  bottom: -1px;
+  bottom: -2px;
 }
 
 .new .fields-mapping .full-content .fade-table {
@@ -653,10 +663,10 @@ th .btn-more::after {
   cursor: pointer;
   padding: 10px;
   position: absolute;
-  z-index: 3;
+  z-index: 300;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  top: calc(162px / 2);
+  top: calc(241px / 2);
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
 }

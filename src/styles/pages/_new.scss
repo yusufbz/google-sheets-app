@@ -91,8 +91,10 @@
       justify-content: space-between;
       align-items: center;
       padding-top: 60px;
-      margin: -176px;
-      z-index: 9999999;
+    }
+    .actions2 {
+      margin: -156px;
+      z-index: 400;
     }
   }
 
@@ -190,6 +192,7 @@
         display: flex;
         overflow: scroll;
         padding: 1px 60px calc(340px - 162px) 60px;
+        z-index: 200;
         // .table {
         //   // border: 1px solid $--tblr-gray-300;
         //   border-bottom: 0px;
@@ -335,28 +338,30 @@
           tbody {
             td {
               border-bottom: 1px solid $--tblr-gray-300;
-              button {
-                display: block;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding-right: 34px;
-                text-align: start;
+              .field-select {
+                position: relative;
+                button {
+                  display: block;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  padding-right: 34px;
+                  text-align: start;
+                }
               }
             }
             .extra {
               padding-top: 24px;
-              border-bottom-width: 0;
+              // border-bottom: none;
               .f-bottom {
                 background: linear-gradient(
                   180deg,
                   rgba($--tblr-body-bg, 0) 0%,
                   $--tblr-body-bg 100%
                 );
-                width: 100%;
                 height: 36px;
                 left: -1px;
                 right: -1px;
-                bottom: -1px;
+                bottom: -2px;
                 // top: 128px;
               }
             }
@@ -390,9 +395,9 @@
         cursor: pointer;
         padding: 10px;
         position: absolute;
-        z-index: 3;
+        z-index: 300;
         transform: translateY(-50%);
-        top: calc(162px / 2);
+        top: calc(241px / 2);
         border-radius: 50%;
         background-color: rgba(#000000, 0.5);
         &:hover {

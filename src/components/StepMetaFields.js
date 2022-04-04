@@ -5,6 +5,7 @@ export default function StepMetaFields({ setActiveStep }) {
   const tableScroll = useRef(null);
   const fieldSelect = useRef();
   const [loading, setLoading] = useState(true);
+  const arr = [1, 2, 3];
   const [sheetData, setSheetData] = useState([
     "id",
     "price",
@@ -75,7 +76,7 @@ export default function StepMetaFields({ setActiveStep }) {
     let currentScroll = tableScroll.current.scrollLeft;
     if (currentScroll >= -300) {
       if (isleft) {
-        tableScroll.current.scrollLeft = currentScroll + (end || 900000);
+        tableScroll.current.scrollLeft = currentScroll + (end ? 900000 : 300);
       } else {
         tableScroll.current.scrollLeft = tableScroll.current.scrollLeft - 300;
       }
@@ -151,13 +152,21 @@ export default function StepMetaFields({ setActiveStep }) {
                       </td>
                     ))}
                   </tr>
-                  <tr>
-                    {sheetData.map((e, index) => (
-                      <td className="extra" key={index}>
-                        <div className="fade-table f-bottom"></div>
-                      </td>
-                    ))}
-                  </tr>
+                  {arr.map((e, index) => {
+                    return (
+                      <tr key={index}>
+                        {sheetData.map((index) => {
+                          return (
+                            <td className="extra" key={index}>
+                              {arr.length === e && (
+                                <div className="fade-table f-bottom" key={index}></div>
+                              )}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
               <button className="" onClick={() => addNewColumn()}>
@@ -176,7 +185,7 @@ export default function StepMetaFields({ setActiveStep }) {
           </>
         )}
       </div>
-      <div className="actions">
+      <div className="actions actions2">
         <button
           className="btn btn-outline"
           onClick={() => setActiveStep((prevStep) => prevStep - 1)}

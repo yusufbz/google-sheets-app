@@ -1,6 +1,6 @@
 import React from "react";
 import IconStatusCircle from "../assets/icons/status-circle";
-import { IconChevronLeft, IconChevronRight, IconTrash } from "@tabler/icons";
+import { IconChevronLeft, IconChevronRight, IconExternalLink, IconTrash } from "@tabler/icons";
 
 export default function AutomationsList({ automations }) {
   function Cell({ name, status, createdDate }) {
@@ -36,6 +36,9 @@ export default function AutomationsList({ automations }) {
         </td>
         <td className="text-muted">{createdDate}</td>
         <td>
+          <a href="/" className="btn btn-more external-sheet-link">
+            <IconExternalLink size={40} />
+          </a>
           <button type="button" className="btn btn-more">
             <IconTrash size={40} />
           </button>
