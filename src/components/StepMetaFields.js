@@ -124,7 +124,7 @@ export default function StepMetaFields({ setActiveStep }) {
                   <tr>
                     {sheetData.map((sheet, index) => (
                       <td key={index}>
-                        <div className="select-sepreadsheet">
+                        <div className="field-select">
                           <button
                             className="btn btn-outline select-btn form-select"
                             onClick={(e) => {
@@ -140,6 +140,12 @@ export default function StepMetaFields({ setActiveStep }) {
                             <li className="dropdown-item">Spreadsheet-01</li>
                             <li className="dropdown-item">Test-99</li>
                             <li className="dropdown-item">My Orders</li>
+                            <li className="dropdown-item">Spreadsheet-01</li>
+                            <li className="dropdown-item">Test-99</li>
+                            <li className="dropdown-item">My Orders</li>
+                            <li className="dropdown-item">Spreadsheet-01</li>
+                            <li className="dropdown-item">Test-99</li>
+                            <li className="dropdown-item">My Orders</li>
                           </ul>
                         </div>
                       </td>
@@ -147,16 +153,20 @@ export default function StepMetaFields({ setActiveStep }) {
                   </tr>
                   <tr>
                     {sheetData.map((e, index) => (
-                      <td className="extra" key={index}></td>
+                      <td className="extra" key={index}>
+                        <div className="fade-table f-bottom"></div>
+                      </td>
                     ))}
                   </tr>
                 </tbody>
               </table>
-              <button onClick={() => addNewColumn()}>Add new col</button>
+              <button className="" onClick={() => addNewColumn()}>
+                Add new col
+              </button>
             </div>
             <div className="fade-table f-left"></div>
             <div className="fade-table f-right"></div>
-            <div className="fade-table f-bottom"></div>
+            {/* <div className="fade-table f-bottom"></div> */}
             <div className="scroll-btn btn-left" onClick={() => changeScroll(false)}>
               <IconChevronLeft size="24" color="#fff" />
             </div>

@@ -1,15 +1,5 @@
 @import "./variables";
 
-.btn-more {
-  padding: 6px;
-  .icon {
-    margin: 0;
-  }
-  &::after {
-    content: none;
-  }
-}
-
 .navigation {
   background-color: white;
   padding: 16px 0;
@@ -60,12 +50,12 @@
   transition: none;
 }
 
-.modal-dialog {
+.modal-dialog2 {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
-  max-width: none;
+  max-width: 100% !important;
   position: absolute;
   top: 0;
   right: 0;
@@ -97,5 +87,18 @@
   }
   p {
     margin: 14px 0 0;
+  }
+}
+
+td,
+th {
+  .btn-more {
+    padding: 6px;
+    .icon {
+      margin: 0;
+    }
+    &::after {
+      content: none;
+    }
   }
 }
