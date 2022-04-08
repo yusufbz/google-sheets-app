@@ -70,6 +70,112 @@ export default function StepMetaFields({ setActiveStep }) {
     );
   };
 
+  const FieldSelect = ({ sheet }) => {
+    const [isCustom, setIsCustom] = useState(false);
+    const customFieldInput = useRef("");
+    const [isListShow, setIsListShow] = useState(false);
+    const [customField, setCustomField] = useState("");
+
+    return (
+      <div className="field-select">
+        <div className="btn btn-outline select-btn form-select" onClick={() => setIsListShow(true)}>
+          <input
+            ref={customFieldInput}
+            value={isCustom ? customField : sheet}
+            disabled={isCustom ? false : true}
+            style={{ pointerEvents: `${isCustom ? "auto" : "none"}` }}
+            placeholder="custom field"
+            onChange={(e) => setCustomField(e.target.value)}
+          />
+        </div>
+        {isListShow && (
+          <ul className="dropdown-menu dropdown-menu-demo" ref={fieldSelect}>
+            {/* Map here over the account spreadsheets list */}
+            <li
+              className="dropdown-item"
+              onClick={() => {
+                setIsCustom(true);
+                setIsListShow(false);
+                setTimeout(() => customFieldInput.current.focus(), 1);
+              }}
+            >
+              Custom
+            </li>
+            <li
+              className="dropdown-item"
+              onClick={() => {
+                setIsCustom(false);
+                setIsListShow(false);
+              }}
+            >
+              Spreadsheet-01
+            </li>
+            <li
+              className="dropdown-item"
+              onClick={() => {
+                setIsCustom(false);
+                setIsListShow(false);
+              }}
+            >
+              Test-99
+            </li>
+            <li
+              className="dropdown-item"
+              onClick={() => {
+                setIsCustom(false);
+                setIsListShow(false);
+              }}
+            >
+              My Orders
+            </li>
+            <li
+              className="dropdown-item"
+              onClick={() => {
+                setIsCustom(false);
+                setIsListShow(false);
+              }}
+            >
+              Spreadsheet-01
+            </li>
+            <li
+              className="dropdown-item"
+              onClick={() => {
+                setIsCustom(false);
+                setIsListShow(false);
+              }}
+            >
+              Test-99
+            </li>
+            <li
+              className="dropdown-item"
+              onClick={() => {
+                setIsCustom(false);
+                setIsListShow(false);
+              }}
+            >
+              My Orders
+            </li>
+            <li
+              className="dropdown-item"
+              onClick={() => {
+                setIsCustom(false);
+                setIsListShow(false);
+              }}
+            >
+              Spreadsheet-01
+            </li>
+            <li className="dropdown-item" onClick={() => setIsCustom(false)}>
+              Test-99
+            </li>
+            <li className="dropdown-item" onClick={() => setIsCustom(false)}>
+              My Orders
+            </li>
+          </ul>
+        )}
+      </div>
+    );
+  };
+
   setTimeout(() => setLoading(false), 1000);
 
   const changeScroll = (isleft, end) => {
@@ -125,30 +231,7 @@ export default function StepMetaFields({ setActiveStep }) {
                   <tr>
                     {sheetData.map((sheet, index) => (
                       <td key={index}>
-                        <div className="field-select">
-                          <button
-                            className="btn btn-outline select-btn form-select"
-                            onClick={(e) => {
-                              const display = e.target.nextSibling.style.display;
-                              e.target.nextSibling.style.display =
-                                display === "block" ? "none" : "block";
-                            }}
-                          >
-                            {sheet}
-                          </button>
-                          <ul className="dropdown-menu dropdown-menu-demo" ref={fieldSelect}>
-                            {/* Map here over the account spreadsheets list */}
-                            <li className="dropdown-item">Spreadsheet-01</li>
-                            <li className="dropdown-item">Test-99</li>
-                            <li className="dropdown-item">My Orders</li>
-                            <li className="dropdown-item">Spreadsheet-01</li>
-                            <li className="dropdown-item">Test-99</li>
-                            <li className="dropdown-item">My Orders</li>
-                            <li className="dropdown-item">Spreadsheet-01</li>
-                            <li className="dropdown-item">Test-99</li>
-                            <li className="dropdown-item">My Orders</li>
-                          </ul>
-                        </div>
+                        <FieldSelect sheet={sheet} />
                       </td>
                     ))}
                   </tr>

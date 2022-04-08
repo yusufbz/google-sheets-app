@@ -435,22 +435,16 @@ th .btn-more::after {
           box-shadow: 0 0 0 1px #206bc4;
 }
 
-.new .select-btn {
-  font-weight: 400;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  text-overflow: ellipsis;
-}
-
 .new .dropdown-menu {
+  display: block;
   top: 44px;
   width: 100%;
   max-height: 200px;
   overflow: scroll;
+}
+
+.new .dropdown-menu li {
+  cursor: pointer;
 }
 
 .new .select-spreadsheet .content {
@@ -610,12 +604,32 @@ th .btn-more::after {
   position: relative;
 }
 
-.new .fields-mapping .full-content .list-fields .table tbody td .field-select button {
-  display: block;
-  overflow: hidden;
+.new .fields-mapping .full-content .list-fields .table tbody td .field-select .select-btn {
+  font-weight: 400;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   text-overflow: ellipsis;
-  padding-right: 34px;
-  text-align: start;
+  padding: 0 29px 0 0;
+}
+
+.new .fields-mapping .full-content .list-fields .table tbody td .field-select .select-btn input {
+  background-color: rgba(255, 255, 255, 0);
+  height: 36px;
+  padding: 7px 7px 7px 16px;
+  line-height: 18px;
+  border: none;
+  border-radius: 2px;
+  text-overflow: ellipsis;
+}
+
+.new .fields-mapping .full-content .list-fields .table tbody td .field-select .select-btn input:hover {
+  -webkit-box-shadow: 0 0 0 5px rgba(32, 107, 196, 0.3);
+          box-shadow: 0 0 0 5px rgba(32, 107, 196, 0.3);
+}
+
+.new .fields-mapping .full-content .list-fields .table tbody td .field-select .select-btn input:disabled {
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .new .fields-mapping .full-content .list-fields .table tbody .extra {
