@@ -6,6 +6,18 @@
     .d-none {
       display: block !important;
     }
+    button {
+      padding: 0;
+      border: none;
+      background: none;
+      color: $--tblr-red;
+    }
+    .divider-vertical {
+      width: 1px;
+      height: 36px;
+      margin: 0 24px;
+      background-color: $--tblr-gray-300;
+    }
   }
 
   .table-responsive {

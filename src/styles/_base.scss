@@ -1,13 +1,13 @@
 @import "./variables";
 
 .navigation {
-  background-color: white;
-  padding: 16px 0;
-  box-shadow: 0 1px 0 $--tblr-gray-200;
+  // background-color: white;
   .container {
+    padding: 16px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 1px 0 $--tblr-gray-200;
     .logo {
       height: 36px;
     }

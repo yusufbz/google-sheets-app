@@ -3,7 +3,6 @@ import Auth from "./Auth";
 import Navigation from "../components/Navigation";
 import Home from "./home";
 import New from "./New";
-import "./App.css";
 import "../styles/main.css";
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
         </Routes>
       ) : (
         <>
-          <Navigation />
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/new" element={<New />} />

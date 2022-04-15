@@ -1,4 +1,4 @@
-import { IconPlus } from "@tabler/icons";
+import { IconLogout, IconPlus } from "@tabler/icons";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -8,6 +8,11 @@ export default function Header() {
         <div className="col">
           <h1 className="page-title">
             Automations - <span>Yusuf's</span>
+            <span className="divider-vertical"></span>
+            <button className="btn btn-ghost-danger">
+              <IconLogout />
+              Disconnect
+            </button>
           </h1>
         </div>
         <div className="col-auto ms-auto">
