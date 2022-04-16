@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      <div className="container">
+      <div className="container-xl">
         <Header />
         <AutomationsList automations={automations} />
       </div>

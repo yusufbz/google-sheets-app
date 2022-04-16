@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import IconStatusCircle from "../assets/icons/status-circle";
 import { IconChevronLeft, IconChevronRight, IconExternalLink, IconTrash } from "@tabler/icons";
+import DeleteAutomation from "./DeleteAutomation";
 
 export default function AutomationsList({ automations }) {
+  const [isDelete, setIsDelete] = useState(false);
+
   function Cell({ name, status, createdDate }) {
     return (
       <>
@@ -39,7 +42,7 @@ export default function AutomationsList({ automations }) {
           <a href="/" className="btn btn-more external-sheet-link">
             <IconExternalLink size={40} />
           </a>
-          <button type="button" className="btn btn-more">
+          <button type="button" className="btn btn-more" onClick={() => setIsDelete(true)}>
             <IconTrash size={40} />
           </button>
         </td>
@@ -113,6 +116,7 @@ export default function AutomationsList({ automations }) {
           </li>
         </ul>
       </div>
+      {isDelete && <DeleteAutomation setIsDelete={setIsDelete} />}
     </div>
   );
 }
