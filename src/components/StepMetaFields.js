@@ -77,8 +77,15 @@ export default function StepMetaFields({ setActiveStep }) {
     const [customField, setCustomField] = useState("");
 
     return (
-      <div className="field-select">
-        <div className="btn btn-outline select-btn form-select" onClick={() => setIsListShow(true)}>
+      <div className="field-select dropdown">
+        <div
+          className="btn btn-outline dropdown-toggle select-btn form-select"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          onClick={() => setIsListShow(true)}
+        >
           <input
             ref={customFieldInput}
             value={isCustom ? customField : sheet}
@@ -88,90 +95,92 @@ export default function StepMetaFields({ setActiveStep }) {
             onChange={(e) => setCustomField(e.target.value)}
           />
         </div>
-        {isListShow && (
-          <ul className="dropdown-menu dropdown-menu-demo" ref={fieldSelect}>
-            {/* Map here over the account spreadsheets list */}
-            <li
-              className="dropdown-item"
-              onClick={() => {
-                setIsCustom(true);
-                setIsListShow(false);
-                setTimeout(() => customFieldInput.current.focus(), 1);
-              }}
-            >
-              Custom
-            </li>
-            <li
-              className="dropdown-item"
-              onClick={() => {
-                setIsCustom(false);
-                setIsListShow(false);
-              }}
-            >
-              Spreadsheet-01
-            </li>
-            <li
-              className="dropdown-item"
-              onClick={() => {
-                setIsCustom(false);
-                setIsListShow(false);
-              }}
-            >
-              Test-99
-            </li>
-            <li
-              className="dropdown-item"
-              onClick={() => {
-                setIsCustom(false);
-                setIsListShow(false);
-              }}
-            >
-              My Orders
-            </li>
-            <li
-              className="dropdown-item"
-              onClick={() => {
-                setIsCustom(false);
-                setIsListShow(false);
-              }}
-            >
-              Spreadsheet-01
-            </li>
-            <li
-              className="dropdown-item"
-              onClick={() => {
-                setIsCustom(false);
-                setIsListShow(false);
-              }}
-            >
-              Test-99
-            </li>
-            <li
-              className="dropdown-item"
-              onClick={() => {
-                setIsCustom(false);
-                setIsListShow(false);
-              }}
-            >
-              My Orders
-            </li>
-            <li
-              className="dropdown-item"
-              onClick={() => {
-                setIsCustom(false);
-                setIsListShow(false);
-              }}
-            >
-              Spreadsheet-01
-            </li>
-            <li className="dropdown-item" onClick={() => setIsCustom(false)}>
-              Test-99
-            </li>
-            <li className="dropdown-item" onClick={() => setIsCustom(false)}>
-              My Orders
-            </li>
-          </ul>
-        )}
+        <ul
+          className="dropdown-menu w-full"
+          aria-labelledby="dropdownMenuButton1"
+          ref={fieldSelect}
+        >
+          {/* Map here over the account spreadsheets list */}
+          <li
+            className="dropdown-item"
+            onClick={() => {
+              setIsCustom(true);
+              setIsListShow(false);
+              setTimeout(() => customFieldInput.current.focus(), 1);
+            }}
+          >
+            Custom
+          </li>
+          <li
+            className="dropdown-item"
+            onClick={() => {
+              setIsCustom(false);
+              setIsListShow(false);
+            }}
+          >
+            Spreadsheet-01
+          </li>
+          <li
+            className="dropdown-item"
+            onClick={() => {
+              setIsCustom(false);
+              setIsListShow(false);
+            }}
+          >
+            Test-99
+          </li>
+          <li
+            className="dropdown-item"
+            onClick={() => {
+              setIsCustom(false);
+              setIsListShow(false);
+            }}
+          >
+            My Orders
+          </li>
+          <li
+            className="dropdown-item"
+            onClick={() => {
+              setIsCustom(false);
+              setIsListShow(false);
+            }}
+          >
+            Spreadsheet-01
+          </li>
+          <li
+            className="dropdown-item"
+            onClick={() => {
+              setIsCustom(false);
+              setIsListShow(false);
+            }}
+          >
+            Test-99
+          </li>
+          <li
+            className="dropdown-item"
+            onClick={() => {
+              setIsCustom(false);
+              setIsListShow(false);
+            }}
+          >
+            My Orders
+          </li>
+          <li
+            className="dropdown-item"
+            onClick={() => {
+              setIsCustom(false);
+              setIsListShow(false);
+            }}
+          >
+            Spreadsheet-01
+          </li>
+          <li className="dropdown-item" onClick={() => setIsCustom(false)}>
+            Test-99
+          </li>
+          <li className="dropdown-item" onClick={() => setIsCustom(false)}>
+            My Orders
+          </li>
+        </ul>
       </div>
     );
   };

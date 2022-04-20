@@ -1,3 +1,4 @@
+import Inspect from "inspx";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -7,7 +8,9 @@ import App from "./pages/App";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Inspect>
+        <App />
+      </Inspect>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

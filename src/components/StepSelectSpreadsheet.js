@@ -14,23 +14,28 @@ export default function StepSelectSpreadsheet({ setAddNewSpreadSheet, setActiveS
         </p>
       </div>
       <div className="content">
-        <div className="select-sepreadsheet">
+        <div className="select-sepreadsheet dropdown">
           <button
-            className="btn btn-outline select-btn form-select"
-            onClick={() => {
-              const display = spreadsheetList.current.style.display;
-              spreadsheetList.current.style.display = display === "block" ? "none" : "block";
-            }}
+            className="btn btn-outline select-btn form-select dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            // onClick={() => {
+            //   const display = spreadsheetList.current.style.display;
+            //   spreadsheetList.current.style.display = display === "block" ? "none" : "block";
+            // }}
           >
             Select…
           </button>
           <ul
-            className="dropdown-menu dropdown-menu-demo"
-            ref={spreadsheetList}
-            onBlur={() => {
-              console.log("blur");
-              spreadsheetList.current.style.display = "none";
-            }}
+            className="dropdown-menu w-full"
+            aria-labelledby="dropdownMenuButton1"
+            // ref={spreadsheetList}
+            // onBlur={() => {
+            //   console.log("blur");
+            //   spreadsheetList.current.style.display = "none";
+            // }}
           >
             {/* Map here over the account spreadsheets list */}
             <li className="dropdown-item">Spreadsheet-01</li>

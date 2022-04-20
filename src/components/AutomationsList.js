@@ -25,7 +25,7 @@ export default function AutomationsList({ automations }) {
               />
               {status ? "Active" : "Desactive"}
             </button>
-            <div className="dropdown-menu dropdown-menu-end">
+            <div className="dropdown-menu dropdown-menu-start">
               <a href="/" className={`dropdown-item ${status && "active"}`}>
                 <IconStatusCircle size={14} className="automation-status-icon" color="#4FBB87" />
                 Active

@@ -481,18 +481,6 @@ th .btn-more::after {
           box-shadow: 0 0 0 1px #206bc4;
 }
 
-.new .dropdown-menu {
-  display: block;
-  top: 44px;
-  width: 100%;
-  max-height: 200px;
-  overflow: scroll;
-}
-
-.new .dropdown-menu li {
-  cursor: pointer;
-}
-
 .new .select-spreadsheet .content {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -526,11 +514,6 @@ th .btn-more::after {
   width: 100%;
   max-height: 200px;
   overflow: scroll;
-}
-
-.new .select-spreadsheet .dropdown-menu {
-  display: none;
-  visibility: visible;
 }
 
 .new .select-sheet-tab .sheet-tabs {
@@ -676,6 +659,10 @@ th .btn-more::after {
 
 .new .fields-mapping .full-content .list-fields .table tbody td .field-select .select-btn input:disabled {
   background-color: rgba(255, 255, 255, 0);
+}
+
+.new .fields-mapping .full-content .list-fields .table tbody td .field-select .select-btn::after {
+  content: none;
 }
 
 .new .fields-mapping .full-content .list-fields .table tbody .extra {
