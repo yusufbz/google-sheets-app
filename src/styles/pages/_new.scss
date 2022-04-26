@@ -93,7 +93,7 @@
       padding-top: 60px;
     }
     .actions2 {
-      margin: -156px;
+      // margin: -156px;
       z-index: 400;
     }
   }
@@ -188,7 +188,8 @@
         scroll-behavior: smooth;
         display: flex;
         overflow: scroll;
-        padding: 1px 60px calc(340px - 162px) 60px;
+        // padding: 1px 60px calc(340px - 162px) 60px;
+        padding: 1px 60px 64px 60px;
         z-index: 200;
         .table {
           box-shadow: 0 0 0 1px $--tblr-gray-300;
@@ -353,6 +354,9 @@
       }
       .btn-right {
         right: 10px;
+      }
+      .group-items-label {
+        max-width: 632px;
       }
     }
   }

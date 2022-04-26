@@ -436,7 +436,6 @@ th .btn-more::after {
 }
 
 .new .step-content .actions2 {
-  margin: -156px;
   z-index: 400;
 }
 
@@ -542,7 +541,7 @@ th .btn-more::after {
   display: -ms-flexbox;
   display: flex;
   overflow: scroll;
-  padding: 1px 60px calc(340px - 162px) 60px;
+  padding: 1px 60px 64px 60px;
   z-index: 200;
 }
 
@@ -733,5 +732,9 @@ th .btn-more::after {
 
 .new .fields-mapping .full-content .btn-right {
   right: 10px;
+}
+
+.new .fields-mapping .full-content .group-items-label {
+  max-width: 632px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -84,7 +84,6 @@ export default function StepMetaFields({ setActiveStep }) {
           id="dropdownMenuButton1"
           data-bs-toggle="dropdown"
           aria-expanded="false"
-          onClick={() => setIsListShow(true)}
         >
           <input
             ref={customFieldInput}
@@ -211,18 +210,19 @@ export default function StepMetaFields({ setActiveStep }) {
           Make sure you are using a sheet created with an account linked to Lightfunnels. It does
           not work if created with an account other than the linked account
         </p>
+
         <button className="btn btn-ghost-primary" onClick={() => addNewColumn()}>
           <IconPlus />
           Add new collumn
         </button>
       </div>
-      <div className="content full-content">
+      <div className="content full-content d-block">
         {loading ? (
           <div className="loading-content">
             <div className="spinner spinner-border"></div>
           </div>
         ) : (
-          <>
+          <div className="d-flex flex-column">
             <div className="list-fields" ref={tableScroll}>
               <table className="table table-responsive">
                 <thead>
@@ -274,10 +274,18 @@ export default function StepMetaFields({ setActiveStep }) {
             <div className="scroll-btn btn-right" onClick={() => changeScroll(true)}>
               <IconChevronRight size="24" color="#fff" />
             </div>
-          </>
+            <div className="alert alert-primary group-items-label align-self-center" role="alert">
+              <label className="form-check">
+                <input className="form-check-input" type="checkbox" />
+                <span className="form-check-label">
+                  Group orders by the same ID's to one group item
+                </span>
+              </label>
+            </div>
+          </div>
         )}
       </div>
-      <div className="actions actions2">
+      <div className="actions actions2 pt-3">
         <button
           className="btn btn-outline"
           onClick={() => setActiveStep((prevStep) => prevStep - 1)}
