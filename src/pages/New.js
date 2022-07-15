@@ -28,10 +28,10 @@ function collect(collectedData, action) {
 }
 
 export default function New() {
-  const [activeStep, setActiveStep] = useState(4);
+  const [activeStep, setActiveStep] = useState(1);
   const [collectedData, setCollectedData] = useReducer(collect, {
-    contacts: true,
-    orders: false,
+    contacts: false,
+    orders: true,
   });
   const [addNewSpreadSheet, setAddNewSpreadSheet] = useState(false);
   const navigate = useNavigate();

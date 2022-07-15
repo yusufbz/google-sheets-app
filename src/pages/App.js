@@ -3,10 +3,12 @@ import Auth from "./Auth";
 import Home from "./home";
 import New from "./New";
 import "../styles/main.css";
+import Inspect from 'inspx';
 
 function App() {
   const auth = true;
   return (
+    <Inspect>
     <div className="App">
       {!auth ? (
         <Routes>
@@ -21,6 +23,7 @@ function App() {
         </>
       )}
     </div>
+    </Inspect>
   );
 }
 

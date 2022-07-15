@@ -480,6 +480,10 @@ th .btn-more::after {
           box-shadow: 0 0 0 1px #206bc4;
 }
 
+.new .collected-data-type .filter-by-tags {
+  max-width: 632px;
+}
+
 .new .select-spreadsheet .content {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
