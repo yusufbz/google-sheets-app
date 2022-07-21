@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import TagInput from "./tagInput";
 
 export default function StepCollectedData({ collectedData, setCollectedData, setActiveStep }) {
-  const [filter, setFilter] = React.useState(false)
 
   return (
     <div className="step-content collected-data-type">
@@ -52,15 +51,10 @@ export default function StepCollectedData({ collectedData, setCollectedData, set
       {collectedData.contacts && (
         <div className="filter-by-tags w-full">
           <hr />
-          <label class="form-check cursor-pointer">
-            <input class="form-check-input" type="checkbox" onChange={() => setFilter(!filter)} />
-            <span class="form-check-label">Filter contacts by tags</span>
-          </label>
-          {
-            filter && (
+          <div>
+            <label className="form-label">Filter contacts by tags</label>
               <TagInput />
-            )
-          }
+          </div>
         </div>
       )
       }

@@ -8,6 +8,8 @@ export default function TagInput() {
 	const [tagsList, setTagsList] = useState([])
 	const [tag, setTag] = useState("")
 
+	console.log(tagsList)
+
 	return (
 		<div className='d-flex flex-column'>
 			<Input
@@ -23,12 +25,15 @@ export default function TagInput() {
 				placeholder='Add tags (Enter to add)'
 			/>
 			{tagsList.length <= 0 ?
-				<span className="text-muted mt-2">Note: If not tags added the all contacts will be added.</span>
+				<span className="text-muted mt-2 mb-2">Note: If not tags added the all contacts will be added.</span>
 				:
-				<ul className='d-flex flex-wrap gap-2 list-unstyled mt-2'>
+				<ul className='d-flex flex-wrap gap-2 list-unstyled mt-2 mb-0'>
 					{tagsList.map((item) =>
 						<li key={item.id}>
-							<TagItem title={item.value} deleteTag={() => setTagsList(tagsList.filter(i => i.id !== item.id))} />
+							<TagItem title={item.value} deleteTag={() => {
+								console.log("wewe")
+								setTagsList(tagsList.filter(i => i.id !== item.id))
+							}} />
 						</li>
 					)}
 				</ul>
